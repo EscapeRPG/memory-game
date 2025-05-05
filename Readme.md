@@ -3,4 +3,4 @@
 ## Description
 
 Projet en javascript : Jeu Memory
->1er projet de formation développeur
+>1er projet de formation développeur web
