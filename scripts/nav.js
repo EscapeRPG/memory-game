@@ -1,6 +1,5 @@
 const accueil = document.getElementById("accueilLien"),
   jouer = document.getElementById("jouerLien"),
-  regles = document.getElementById("reglesLien"),
   connexion = document.getElementById("connexionLien"),
   compte = document.getElementById("compteLien");
 
@@ -8,7 +7,7 @@ const page = window.location.href.substring(
   window.location.href.lastIndexOf("/") + 1
 );
 
-export function currentPage() {
+function currentPage() {
   switch (page) {
     case "jouer.html":
       jouer.classList.add("current");
@@ -25,3 +24,5 @@ export function currentPage() {
       break;
   }
 }
+
+window.addEventListener("load", currentPage);
