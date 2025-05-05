@@ -127,3 +127,19 @@ table {
     color: lightskyblue;
   }
 }
+
+p {
+  text-align: justify;
+
+  &.center {
+    text-align: center;
+  }
+}
+
+a {
+  color: lightskyblue;
+
+  &:hover {
+    color: orange;
+  }
+}
