@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <title>Memory - Utilisateur</title>
+  </head>
+  <body>
+    <header>
+      <h1>ENI — <strong>MEMORY</strong> — Accueil</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" id="accueilLien">Accueil</a></li>
+          <li><a href="jouer.html" id="jouerLien">Jouer</a></li>
+          <li><a href="compte.html" id="compteLien">Compte</a></li>
+          <li><a href="connexion.html" id="connexionLien">Se connecter</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Profil</h2>
+        <img src="assets/dinosaures/1.jpg" alt="avatar">
+        <form action="compte.html" method="get">
+          <label for="name">Nom d'utilisateur</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            minlength="3"
+            placeholder="3 caractères minimum"
+          />
+          <label for="email">Entrez votre email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Votre email"
+          />
+          <label for="memoryDesign">Choix du Memory</label>
+          <select name="memoryDesign" id="memoryDesign">
+            <option value="dinosaures">Dinosaures</option>
+            <option value="">.. more coming soon !</option>
+          </select>
+          <div class="formButtons">
+            <button id="saveChanges">Enregistrer option</button>
+          </div>
+        </form>
+        <table id="scores">
+            <caption>Derniers scores</caption>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Score</th>
+                    <th>Taille</th>
+                    <th>Choix Memory</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+      </section>
+    </main>
+    <script src="scripts/nav.js"></script>
+  </body>
+</html>
