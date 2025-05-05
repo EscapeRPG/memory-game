@@ -37,7 +37,8 @@ nav {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   text-align: center;
   font-weight: normal;
 }
@@ -142,4 +143,9 @@ a {
   &:hover {
     color: orange;
   }
+}
+
+#difficulty {
+  display: flex;
+  flex-direction: column;
 }
