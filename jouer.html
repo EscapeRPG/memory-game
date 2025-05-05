@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Memory - Accueil</title>
+  </head>
+  <body>
+    <header>
+      <h1>ENI — <strong>MEMORY</strong> — Accueil</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" id="accueilLien">Accueil</a></li>
+          <li><a href="jouer.html" id="jouerLien">Jouer</a></li>
+          <li><a href="compte.html" id="compteLien">Compte</a></li>
+          <li><a href="connexion.html" id="connexionLien">Se connecter</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Welcome to Memory Game</h2>
+        <div id="test">
+          <h3>Choisissez votre niveau de difficulté</h3>
+          <div id="difficulty">
+            <button id="easy" class="difficultyLevel">3 x 2 : Facile</button>
+            <button id="medium" class="difficultyLevel">4 x 2 : Moyen</button>
+            <button id="normal" class="difficultyLevel">4 x 3 : Normal</button>
+            <button id="hard" class="difficultyLevel">4 x 4 : Difficile</button>
+            <button id="hardcore" class="difficultyLevel">
+              4 x 5 : Infernal ! Pour les vrai·e·s dur·e·s !
+            </button>
+          </div>
+        </div>
+        <div id="board"></div>
+      </section>
+    </main>
+    <script src="scripts/memoryGame.js" type="module"></script>
+    <script src="scripts/nav.js"></script>
+  </body>
+</html>
