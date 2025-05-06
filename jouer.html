@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styleMemory.css" />
     <title>Memory - Accueil</title>
   </head>
   <body>
@@ -21,19 +22,22 @@
     <main>
       <section>
         <h2>Welcome to Memory Game</h2>
-        <div id="test">
-          <h3>Choisissez votre niveau de difficulté</h3>
-          <div id="difficulty">
-            <button id="easy" class="difficultyLevel">3 x 2 : Facile</button>
-            <button id="medium" class="difficultyLevel">4 x 2 : Moyen</button>
-            <button id="normal" class="difficultyLevel">4 x 3 : Normal</button>
-            <button id="hard" class="difficultyLevel">4 x 4 : Difficile</button>
-            <button id="hardcore" class="difficultyLevel">
-              4 x 5 : Infernal ! Pour les vrai·e·s dur·e·s !
-            </button>
-          </div>
+        <h3>Choisissez votre niveau de difficulté</h3>
+        <div id="difficulties">
+          <button id="6" class="difficultyLevel">3 x 2</button>
+          <button id="8" class="difficultyLevel">4 x 2</button>
+          <button id="10" class="difficultyLevel">5 x 2</button>
+          <button id="12" class="difficultyLevel">4 x 3</button>
+          <button id="14" class="difficultyLevel">7 x 2</button>
+          <button id="16" class="difficultyLevel">4 x 4</button>
+          <button id="18" class="difficultyLevel">3 x 6</button>
+          <button id="20" class="difficultyLevel">4 x 5</button>
         </div>
         <div id="board"></div>
+        <div id="scoreBoard">
+          <h3>Nombre de coups :</h3>
+          <span id="score">0</span>
+        </div>
       </section>
     </main>
     <script src="scripts/memoryGame.js" type="module"></script>
