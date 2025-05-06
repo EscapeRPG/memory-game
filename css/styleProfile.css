@@ -10,6 +10,7 @@ form {
   .formButtons {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
   }
 }
@@ -26,6 +27,14 @@ input {
   &:focus {
     background-color: white;
     color: black;
+  }
+
+  &:valid {
+    color: white;
+  }
+
+  &:invalid {
+    color: red;
   }
 }
 
