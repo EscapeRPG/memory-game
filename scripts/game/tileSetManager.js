@@ -6,9 +6,6 @@ if (localStorage.getItem("tileSetType")) {
   tileType = "dinosaures";
 }
 
-const DIR = './assets';
-
-
 const tileSet = [
   `<img src="assets/${tileType}/1.jpg" alt="${tileType}1" class="hidden">`,
   `<img src="assets/${tileType}/2.jpg" alt="${tileType}2" class="hidden">`,
