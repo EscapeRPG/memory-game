@@ -17,29 +17,33 @@ const submitButton = document.getElementById("createAccount"),
 submitButton.addEventListener("click", createAccount);
 cancelButton.addEventListener("click", cancel);
 
-function createAccount(e) {
-  let name = validateName(nameInput.value, nameError);
-  let mail = validateMail(mailInput.value, mailError);
-  let password = validatePassword(passwordInput.value, passwordError);
+async function createAccount(e) {
+  e.preventDefault();
+
+const userName = nameInput.value,
+  userMail = mailInput.value,
+  userPassword = passwordInput.value;
+
+  let name = validateName(userName, nameError);
+  let mail = validateMail(userMail, mailError);
+  let password = validatePassword(userPassword, passwordError);
   let confirmPass = validateConfirmPass(
-    passwordInput.value,
+    userPassword,
     confirmPassword.value,
     confirmPassError
   );
 
   if (name && mail && password && confirmPass) {
-    if (!localStorage.getItem(nameInput.value)) {
-      localStorage.setItem(nameInput.value, [
-        mailInput.value,
-        passwordInput.value,
-      ]);
+    if (!localStorage.getItem(userName)) {
+      const hashedPassword = await cryptPassword(userPassword);
+      const userData = [userMail, hashedPassword];
+      localStorage.setItem(userName, JSON.stringify(userData));
     } else {
       alert(
         "Cet utilisateur existe déjà ! Veuillez choisir un autre pseudo ou vous connecter."
       );
     }
   }
-  e.preventDefault();
 }
 
 function cancel() {
@@ -47,4 +51,12 @@ function cancel() {
   mailInput.value = "";
   passwordInput.value = "";
   confirmPassword.value = "";
+}
+
+async function cryptPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
