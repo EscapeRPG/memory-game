@@ -14,11 +14,15 @@ export function flipTile(tileBack, tile) {
 
   tileBack.setAttribute(
     "style",
-    "transform: rotateY(-180deg); transition: 0.5s linear"
+    "transform: rotateY(-180deg); transition: 0.5s linear; background: none;"
   );
   setTimeout(() => {
     tile.classList.remove("hidden");
     tile.classList.add("flipped");
+    tile.setAttribute(
+      "style",
+      "transform: rotateY(180deg); transition: 0s; background-color: black;"
+    );
   }, 250);
 
   flipNumber++;
