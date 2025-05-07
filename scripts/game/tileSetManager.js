@@ -1,23 +1,48 @@
-let tileType;
+let tileType, tileSetLength, imageFormat;
 
 if (localStorage.getItem("tileSetType")) {
   tileType = localStorage.getItem("tileSetType");
+  switch (tileType) {
+    case "alphabet-scrabble":
+      tileSetLength = 26;
+      imageFormat = "png";
+      break;
+    case "animaux":
+      tileSetLength = 28;
+      imageFormat = "webp";
+      break;
+    case "animauxAnimes":
+      tileSetLength = 8;
+      imageFormat = "webp";
+      break;
+    case "chiens":
+      tileSetLength = 10;
+      imageFormat = "webp";
+      break;
+    case "memory-legume":
+      tileSetLength = 10;
+      imageFormat = "svg";
+      break;
+    case "animauxdomestiques":
+    case "dinosauresAvecNom":
+    default:
+      tileSetLength = 10;
+      imageFormat = "jpg";
+      break;
+  }
 } else {
   tileType = "dinosaures";
+  tileSetLength = 10;
+  imageFormat = "jpg";
 }
 
-const tileSet = [
-  `<img src="assets/${tileType}/1.jpg" alt="${tileType}1" class="hidden">`,
-  `<img src="assets/${tileType}/2.jpg" alt="${tileType}2" class="hidden">`,
-  `<img src="assets/${tileType}/3.jpg" alt="${tileType}3" class="hidden">`,
-  `<img src="assets/${tileType}/4.jpg" alt="${tileType}4" class="hidden">`,
-  `<img src="assets/${tileType}/5.jpg" alt="${tileType}5" class="hidden">`,
-  `<img src="assets/${tileType}/6.jpg" alt="${tileType}6" class="hidden">`,
-  `<img src="assets/${tileType}/7.jpg" alt="${tileType}7" class="hidden">`,
-  `<img src="assets/${tileType}/8.jpg" alt="${tileType}8" class="hidden">`,
-  `<img src="assets/${tileType}/9.jpg" alt="${tileType}9" class="hidden">`,
-  `<img src="assets/${tileType}/10.jpg" alt="${tileType}10" class="hidden">`,
-];
+const tileSet = [];
+
+for (let index = 1; index <= tileSetLength; index++) {
+  tileSet.push(
+    `<img src="assets/${tileType}/${index}.${imageFormat}" alt="${tileType}${index}" class="hidden">`
+  );
+}
 
 export function tileSetManager(chosenDifficulty) {
   const gameTileSet = [];
