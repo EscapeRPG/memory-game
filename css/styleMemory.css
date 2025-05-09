@@ -13,7 +13,7 @@
     border: none;
     border-radius: 20px;
     font-size: 2em;
-    font-weight: bold;;
+    font-weight: bold;
 
     &:hover {
       background-color: orange;
