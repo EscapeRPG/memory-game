@@ -1,7 +1,10 @@
 let tileType, tileSetLength, imageFormat;
 
-if (localStorage.getItem("tileSetType")) {
-  tileType = localStorage.getItem("tileSetType");
+if (localStorage.getItem("connected")) {
+  const user = localStorage.getItem("connected");
+  const userData = JSON.parse(localStorage.getItem(user));
+
+  tileType = userData[3];
   switch (tileType) {
     case "alphabet-scrabble":
       tileSetLength = 26;
