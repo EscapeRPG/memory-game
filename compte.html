@@ -22,8 +22,11 @@
     <main>
       <section>
         <h2>Profil</h2>
-        <img src="assets/dinosaures/1.jpg" alt="avatar">
+        <img src="assets/dinosaures/1.jpg" alt="avatar" id="avatar">
         <form action="compte.html" method="get">
+          <input type="file" name="file" id="file" class="hiddenInput" accept="image/png, image/jpeg">
+          <button id="changeAvatar">Changer de photo de profil</button>
+
           <label for="name">Nom d'utilisateur</label>
           <input
             type="text"
@@ -31,25 +34,39 @@
             id="name"
             minlength="3"
             placeholder="3 caractères minimum"
+            readonly="readonly"
           />
+
           <label for="email">Entrez votre email</label>
           <input
             type="email"
             name="email"
             id="email"
             placeholder="Votre email"
+            readonly="readonly"
           />
-          <label for="memoryDesign">Choix du Memory</label>
-          <select name="memoryDesign" id="memoryDesign">
+
+          <img src="assets/dinosaures/memory_detail_dinosaures.png" alt="thème de jeu" id="tileTheme">
+          <label for="tileSetTheme">Choix du Memory</label>
+          <select name="tileSetTheme" id="tileSetTheme">
+            <option value="../question.svg">Choisissez votre thème préféré</option>
             <option value="dinosaures">Dinosaures</option>
-            <option value="">.. more coming soon !</option>
+            <option value="alphabet-scrabble">Les Lettres du Scrabble</option>
+            <option value="animaux">Animaux</option>
+            <option value="animauxAnimes">Animaux animés</option>
+            <option value="animauxdomestiques">Animaux domestiques</option>
+            <option value="dinosauresAvecNom">Dinosaures avec noms</option>
+            <option value="memory-legume">Fruits & Légumes</option>
           </select>
+
           <div class="formButtons">
             <button id="saveChanges">Enregistrer option</button>
+            <button id="disconnect">Déconnexion</button>
           </div>
         </form>
+
         <table id="scores">
-            <caption>Derniers scores</caption>
+            <caption>Mes derniers scores</caption>
             <thead>
                 <tr>
                     <th>Pseudo</th>
@@ -65,5 +82,6 @@
       </section>
     </main>
     <script src="scripts/nav.js"></script>
+    <script src="scripts/account/account.js" type="module"></script>
   </body>
 </html>
