@@ -21,11 +21,13 @@ function checkScores() {
     scoresData.parties.sort((a, b) => a.score - b.score);
     scoresData.parties.forEach((game) => {
       topFive.innerHTML += `
-          <td>${game.nom}</td>
-          <td>${game.score}</td>
-          <td>${game.taille}</td>
-          <td>${game.theme}</td>
-          <td>${game.date}</td>
+          <tr>
+            <td>${game.nom}</td>
+            <td>${game.score}</td>
+            <td>${game.taille}</td>
+            <td>${game.theme}</td>
+            <td>${game.date}</td>
+          </tr>
         `;
     });
   } else {
