@@ -23,7 +23,7 @@ if (localStorage.getItem("connected")) {
       imageFormat = "webp";
       break;
     case "memory-legume":
-      tileSetLength = 10;
+      tileSetLength = 6;
       imageFormat = "svg";
       break;
     case "animauxdomestiques":
