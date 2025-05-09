@@ -22,12 +22,12 @@ confirmPasswordInput.addEventListener("input", () => {
       confirmPassError.classList.remove("error");
     }
     confirmPasswordInput.style.backgroundImage =
-      'url("/memory-game/assets/check.svg")';
+      'url("/assets/check.svg")';
   } else if (confirmPasswordInput.value === "") {
     confirmPasswordInput.style.backgroundImage = "none";
   } else {
     confirmPassError.classList.add("error");
     confirmPasswordInput.style.backgroundImage =
-      'url("/memory-game/assets/error.svg")';
+      'url("/assets/error.svg")';
   }
 });

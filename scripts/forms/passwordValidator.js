@@ -25,13 +25,13 @@ passwordInput.addEventListener("input", () => {
       passwordError.classList.remove("error");
     }
     passwordInput.style.backgroundImage =
-      'url("/memory-game/assets/check.svg")';
+      'url("/assets/check.svg")';
   } else if (passwordInput.value === "") {
     passwordInput.style.backgroundImage = "none";
   } else {
     passwordError.classList.add("error");
     passwordInput.style.backgroundImage =
-      'url("/memory-game/assets/error.svg")';
+      'url("/assets/error.svg")';
   }
 
   if (regEx.test(passwordInput.value) && passwordInput.value.length > 9) {
