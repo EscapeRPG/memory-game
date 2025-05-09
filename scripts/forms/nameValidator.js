@@ -19,7 +19,11 @@ nameInput.addEventListener("input", () => {
     if (nameError.classList.contains("error")) {
       nameError.classList.remove("error");
     }
+    nameInput.style.backgroundImage = 'url("/memory-game/assets/check.svg")';
+  } else if (nameInput.value === '') {
+    nameInput.style.backgroundImage = 'none';
   } else {
     nameError.classList.add("error");
+    nameInput.style.backgroundImage = 'url("/memory-game/assets/error.svg")';
   }
 });
