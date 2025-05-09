@@ -5,6 +5,64 @@ form {
   span {
     color: gray;
     margin: 0 0 20px 0;
+    font-size: 0.8em;
+    display: none;
+
+    &#passwordStrongness {
+      display: none;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin-bottom: 5px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        border-radius: 20px;
+
+        &#weak {
+          color: red;
+        }
+
+        &#medium {
+          color: orange;
+        }
+
+        &#strong {
+          color: limegreen;
+        }
+
+        &.hidden {
+          visibility: hidden;
+        }
+
+        &.red,
+        .orange,
+        .green {
+          width: 100%;
+          height: 5px;
+          margin-bottom: 5px;
+        }
+
+        &.red {
+          background-color: red;
+        }
+
+        &.orange {
+          background-color: orange;
+        }
+
+        &.green {
+          background-color: limegreen;
+        }
+      }
+    }
+
+    &.error {
+      display: block;
+      color: red;
+    }
   }
 
   .formButtons {
@@ -29,13 +87,16 @@ input {
     color: black;
   }
 
-  &:valid {
-    color: white;
+  &#name, &#email, &#password, &#confirmPass {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: bottom 5px right 5px;
+    background-size: 5%;
   }
+}
 
-  &:invalid {
-    color: red;
-  }
+select {
+  margin-bottom: 20px;
 }
 
 button {
