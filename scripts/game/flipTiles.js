@@ -9,7 +9,7 @@ const tilesBack = [],
   goodTiles = [];
 
 export function flipTile(tileBack, tile) {
-
+  tileBack.classList.add("flipped");
   if (isFlipping) return;
 
   tileBack.setAttribute(
@@ -58,6 +58,7 @@ function checkTiles(tileBack, tile) {
         "style",
         "transform: rotateY(0deg); transition: 0.5s linear"
       );
+      tile.classList.remove("flipped");
     });
 
     setTimeout(() => {
