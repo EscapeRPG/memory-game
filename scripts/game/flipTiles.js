@@ -1,16 +1,18 @@
 import { newGame } from "./reset.js";
+import { saveScore } from "./saveScore.js";
 
 const scoreDiv = document.getElementById("score");
 
 let flipNumber = 0,
   isFlipping = false,
-  score = 0;
+  score = 0,
+  difficulty;
 const tilesBack = [],
   goodTiles = [];
 
 export function flipTile(tileBack, tile) {
-  tileBack.classList.add("flipped");
   if (isFlipping) return;
+  tileBack.classList.add("flippedSingleCard");
 
   tileBack.setAttribute(
     "style",
@@ -58,7 +60,7 @@ function checkTiles(tileBack, tile) {
         "style",
         "transform: rotateY(0deg); transition: 0.5s linear"
       );
-      tile.classList.remove("flipped");
+      tile.classList.remove("flippedSingleCard");
     });
 
     setTimeout(() => {
@@ -81,9 +83,49 @@ function checkTiles(tileBack, tile) {
 
 function finalCheck() {
   const allTiles = document.querySelectorAll(".tileBack");
+  console.log(allTiles.length);
+  
+  switch (allTiles.length) {
+    case 6:
+      difficulty = "3 par 2";
+      break;
+    case 8:
+      difficulty = "4 par 2";
+      break;
+    case 10:
+      difficulty = "5 par 2";
+      break;
+    case 12:
+      difficulty = "4 par 3";
+      break;
+    case 14:
+      difficulty = "7 par 2";
+      break;
+    case 16:
+      difficulty = "4 par 4";
+      break;
+    case 18:
+      difficulty = "3 par 6";
+      break;
+    default:
+      difficulty = "4 par 5";
+      break;
+  }
 
   if (goodTiles.length == allTiles.length) {
-    if (confirm("c'est gagné ! encore une ?")) {
+    if (localStorage.getItem("connected")) {
+      if (confirm("C'est gagné ! Voulez-vous enregistrer votre score ?")) {
+        const user = localStorage.getItem("connected"),
+          userData = JSON.parse(localStorage.getItem(user)),
+          nom = user,
+          taille = difficulty,
+          theme = userData[3];
+        saveScore(nom, score, taille, theme);
+      }
+    } else {
+      alert("Bravo, vous avez gagné !");
+    }
+    if (confirm("Encore une ?")) {
       score = 0;
       goodTiles.splice(0, goodTiles.length);
       newGame();
