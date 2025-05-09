@@ -31,6 +31,9 @@
             minlength="3"
             placeholder="3 caractères minimum"
           />
+          <span id="nameError"
+            >Erreur : 3 caractères minimum (tirets autorisés).</span
+          >
           <label for="email">Entrez votre email</label>
           <input
             type="email"
@@ -38,6 +41,7 @@
             id="email"
             placeholder="Votre email"
           />
+          <span id="mailError">Erreur : format email invalide !</span>
           <label for="password">Mot de passe</label>
           <input
             type="password"
@@ -45,6 +49,23 @@
             id="password"
             placeholder="Votre mot de passe"
           />
+          <span id="passwordStrongness">
+            <div id="weak" class="hidden">
+              <div class="red"></div>
+              Faible
+            </div>
+            <div id="medium" class="hidden">
+              <div class="orange"></div>
+              Moyen
+            </div>
+            <div id="strong" class="hidden">
+              <div class="green"></div>
+              Fort
+            </div>
+          </span>
+          <span id="passwordError" style="display: block" class="error"
+            >6 caractères minimum, avec au moins un chiffre et un symbole.</span
+          >
           <label for="confirmPass">Confirmez le mot de passe</label>
           <input
             type="password"
@@ -52,8 +73,8 @@
             id="confirmPass"
             placeholder="Confirmez le mot de passe"
           />
-          <span
-            >6 caractères minimum, avec au moins un chiffre et un symbole.</span
+          <span id="confirmPassError"
+            >Erreur : les mots de passe ne correspondent pas.</span
           >
           <div class="formButtons">
             <button id="createAccount">Création du compte</button>
