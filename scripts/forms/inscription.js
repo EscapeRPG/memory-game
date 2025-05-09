@@ -13,7 +13,24 @@ const submitButton = document.getElementById("createAccount"),
   passwordInput = document.getElementById("password"),
   passwordError = document.getElementById("passwordError"),
   confirmPassword = document.getElementById("confirmPass"),
-  confirmPassError = document.getElementById("confirmPassError");
+  confirmPassError = document.getElementById("confirmPassError"),
+  container = document.getElementById("inscriptionContainer");
+
+const buzz = [
+  {
+    transform: `translateX(-5px)`,
+    transition: `0.1s linear`,
+  },
+  {
+    transform: `translateX(5px)`,
+    transition: `0.1s linear`,
+  },
+];
+
+const buzzTiming = {
+  duration: 70,
+  iterations: 5,
+};
 
 submitButton.addEventListener("click", createAccount);
 cancelButton.addEventListener("click", cancel);
@@ -37,7 +54,7 @@ async function createAccount(e) {
   if (name && mail && password && confirmPass) {
     if (!localStorage.getItem(userName)) {
       const hashedPassword = await cryptPassword(userPassword);
-      let profilePic = 'assets/question.svg';
+      let profilePic = "assets/question.svg";
       let tileSetTheme = "dinosaures";
       const userData = [userMail, hashedPassword, profilePic, tileSetTheme];
       localStorage.setItem(userName, JSON.stringify(userData));
@@ -48,6 +65,8 @@ async function createAccount(e) {
         "Cet utilisateur existe déjà ! Veuillez choisir un autre pseudo ou vous connecter."
       );
     }
+  } else {
+    container.animate(buzz, buzzTiming);
   }
 }
 
