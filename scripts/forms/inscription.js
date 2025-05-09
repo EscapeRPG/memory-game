@@ -2,6 +2,7 @@ import { validateName } from "./nameValidator.js";
 import { validateMail } from "./mailValidator.js";
 import { validatePassword } from "./passwordValidator.js";
 import { validateConfirmPass } from "./confirmPassValidator.js";
+import { cryptPassword } from "./crypt.js";
 
 const submitButton = document.getElementById("createAccount"),
   cancelButton = document.getElementById("cancel"),
@@ -20,9 +21,9 @@ cancelButton.addEventListener("click", cancel);
 async function createAccount(e) {
   e.preventDefault();
 
-const userName = nameInput.value,
-  userMail = mailInput.value,
-  userPassword = passwordInput.value;
+  const userName = nameInput.value,
+    userMail = mailInput.value,
+    userPassword = passwordInput.value;
 
   let name = validateName(userName, nameError);
   let mail = validateMail(userMail, mailError);
@@ -36,8 +37,12 @@ const userName = nameInput.value,
   if (name && mail && password && confirmPass) {
     if (!localStorage.getItem(userName)) {
       const hashedPassword = await cryptPassword(userPassword);
-      const userData = [userMail, hashedPassword];
+      let profilePic = 'assets/question.svg';
+      let tileSetTheme = "dinosaures";
+      const userData = [userMail, hashedPassword, profilePic, tileSetTheme];
       localStorage.setItem(userName, JSON.stringify(userData));
+      alert("Inscription réussie ! Veuillez vous connecter à présent.");
+      window.location.href = "connexion.html";
     } else {
       alert(
         "Cet utilisateur existe déjà ! Veuillez choisir un autre pseudo ou vous connecter."
@@ -51,12 +56,4 @@ function cancel() {
   mailInput.value = "";
   passwordInput.value = "";
   confirmPassword.value = "";
-}
-
-async function cryptPassword(password) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(password);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
