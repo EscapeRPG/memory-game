@@ -54,8 +54,7 @@ export function tileSetManager(chosenDifficulty) {
     let random = Math.floor(Math.random() * tileSet.length);
 
     if (!gameTileSet.includes(tileSet[random])) {
-      gameTileSet.push(tileSet[random]);
-      gameTileSet.push(tileSet[random]);
+      gameTileSet.push(tileSet[random], tileSet[random]);
     }
   }
 
