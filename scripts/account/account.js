@@ -82,11 +82,13 @@ function checkConnexion() {
       scoresData.parties.forEach((game) => {
         if (game.nom === user) {
           lastScores.innerHTML += `
-          <td>${game.nom}</td>
-          <td>${game.score}</td>
-          <td>${game.taille}</td>
-          <td>${game.theme}</td>
-          <td>${game.date}</td>
+          <tr>
+            <td>${game.nom}</td>
+            <td>${game.score}</td>
+            <td>${game.taille}</td>
+            <td>${game.theme}</td>
+            <td>${game.date}</td>
+          </tr>
         `;
         }
       });
