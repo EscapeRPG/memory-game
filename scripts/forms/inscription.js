@@ -51,7 +51,8 @@ async function createAccount(e) {
   }
 }
 
-function cancel() {
+function cancel(e) {
+  e.preventDefault();
   nameInput.value = "";
   mailInput.value = "";
   passwordInput.value = "";
