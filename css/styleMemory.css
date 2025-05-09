@@ -12,9 +12,13 @@
     padding: 5px 10px;
     border: none;
     border-radius: 20px;
+    font-size: 2em;
+    font-weight: bold;;
 
     &:hover {
       background-color: orange;
+      box-shadow: 0 0 10px orange;
+      transform: scale(1.1);
     }
   }
 }
@@ -23,23 +27,34 @@
   max-width: 900px;
   margin: auto;
   display: grid;
-  gap: 10px;
-
-  img {
-    width: 100%;
-    margin: 0;
-
-    &.hidden {
-      visibility: hidden;
-    }
-  }
+  gap: 20px;
 
   .tileBack {
     background: url('../assets/question.svg') center no-repeat;
     background-size: 80% 80%;
     border: 1px solid blue;
     border-radius: 20px;
-    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1 / 1;
+
+    &:hover {
+      transform: scale(1.1) !important;
+      transition: 0s !important;
+    }
+  }
+
+  img {
+    position: absolute;
+    margin: 0;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    top: -1px;
+    left: -1px;
+    border-radius: 20px;
+
+    &.hidden {
+      visibility: hidden;
+    }
   }
 }
 
@@ -55,11 +70,35 @@
 }
 
 .good {
-  border: 2px solid orange;
-  box-shadow: 0 0 5px orange;
+  outline: 1px solid orange;
+  box-shadow: 0 0 8px orange;
   pointer-events: none;
 }
 
-.flipped {
+.flippedSingleCard {
   pointer-events: none;
+}
+
+table {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  border-spacing: 0;
+
+  th {
+    border: 1px solid white;
+  }
+
+  td {
+    border-bottom: 1px solid white;
+    color: lightskyblue;
+    padding: 5px 0;
+  }
+
+  caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px auto;
+    color: lightskyblue;
+  }
 }

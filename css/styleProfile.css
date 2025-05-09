@@ -91,7 +91,7 @@ input {
     background-image: none;
     background-repeat: no-repeat;
     background-position: bottom 5px right 5px;
-    background-size: 5%;
+    background-size: 15px;
   }
 }
 
@@ -125,4 +125,19 @@ table {
     border-bottom: 1px solid white;
     color: lightskyblue;
   }
+
+  caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px auto;
+    color: lightskyblue;
+  }
+}
+
+#avatar {
+  max-width: 300px;
+}
+
+.hiddenInput {
+  display: none;
 }
