@@ -36,11 +36,6 @@
     border-radius: 20px;
     position: relative;
     aspect-ratio: 1 / 1;
-
-    &:hover {
-      transform: scale(1.1) !important;
-      transition: 0s !important;
-    }
   }
 
   img {

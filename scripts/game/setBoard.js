@@ -35,9 +35,9 @@ export function setBoard(tileSet, difficulty) {
       break;
   }
 
-  difficultyButtons.style.display = 'none';
-  if (board.style.display === 'none') {
-    board.style.display = 'grid';
+  difficultyButtons.style.display = "none";
+  if (board.style.display === "none") {
+    board.style.display = "grid";
   }
 
   board.innerHTML = "";

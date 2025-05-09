@@ -16,7 +16,7 @@ export function flipTile(tileBack, tile) {
 
   tileBack.setAttribute(
     "style",
-    "transform: rotateY(-180deg); transition: 0.5s linear; background: none;"
+    "transform: rotateY(-90deg); transition: 0.25s linear;"
   );
   setTimeout(() => {
     tile.classList.remove("hidden");
@@ -24,6 +24,10 @@ export function flipTile(tileBack, tile) {
     tile.setAttribute(
       "style",
       "transform: rotateY(180deg); transition: 0s; background-color: black;"
+    );
+    tileBack.setAttribute(
+      "style",
+      "transform: rotateY(-180deg); transition: 0.25s linear; background: none;"
     );
   }, 250);
 
@@ -84,7 +88,7 @@ function checkTiles(tileBack, tile) {
 function finalCheck() {
   const allTiles = document.querySelectorAll(".tileBack");
   console.log(allTiles.length);
-  
+
   switch (allTiles.length) {
     case 6:
       difficulty = "3 par 2";
