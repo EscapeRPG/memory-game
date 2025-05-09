@@ -48,8 +48,11 @@ h1 {
 }
 
 h2 {
-  text-decoration: underline;
   color: rgb(68, 179, 243);
+}
+
+strong {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 section {
