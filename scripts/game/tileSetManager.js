@@ -14,17 +14,9 @@ if (localStorage.getItem("connected")) {
       tileSetLength = 28;
       imageFormat = "webp";
       break;
-    case "animauxAnimes":
-      tileSetLength = 8;
-      imageFormat = "webp";
-      break;
     case "chiens":
       tileSetLength = 10;
       imageFormat = "webp";
-      break;
-    case "memory-legume":
-      tileSetLength = 6;
-      imageFormat = "svg";
       break;
     case "animauxdomestiques":
     case "dinosauresAvecNom":
